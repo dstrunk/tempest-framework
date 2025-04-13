@@ -14,6 +14,10 @@ final class JsonToArrayCaster implements Caster
             return $input;
         }
 
+        if (!json_validate($input)) {
+            return [];
+        }
+
         return json_decode($input, associative: true);
     }
 }
